@@ -32,7 +32,7 @@ This project demonstrates the following skills and competencies:
 - Page Navigation etc
 
 ## Data Sourcing
-Data for this project is sourced from the Adventure Works database, which contains sales and inventory information. The database provides historical data that is essential for analyzing sales trends and inventory movements. 4 tables where importables to power Bi with the queries below
+Data for this analysis is sourced from the Adventure Works database, which contains comprehensive sales and inventory information. The following SQL queries were employed to extract relevant data:
 
 
  **Inventory Table**
