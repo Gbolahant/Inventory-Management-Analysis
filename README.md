@@ -4,7 +4,7 @@ Inventory analysis report
 [View here](https://app.powerbi.com/view?r=eyJrIjoiM2Q4ZTVkMmMtMmYwZi00YzQ2LWFjNDMtNDYwY2YyMzkwNDY2IiwidCI6ImQ2YjZlODcwLTkwNTgtNDgzOS1hOTJiLTNiNzRhMGI1ODliMSJ9)
 
 
-![](Homepage.png)
+![](Warehouse.png)
 
 ## Introduction
 The Inventory Management Optimization project aims to enhance FitCapacity's inventory management practices by leveraging data analysis and predictive modelling. This documentation outlines the process and steps involved in solving this business problem using data-driven insights.
