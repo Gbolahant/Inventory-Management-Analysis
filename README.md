@@ -70,7 +70,8 @@ LEFT JOIN Production.ProductSubcategory psc ON pro.ProductSubcategoryID = psc.Pr
 LEFT JOIN Production.ProductCategory pc ON psc.ProductCategoryID = pc.ProductCategoryID
 LEFT JOIN Purchasing.ProductVendor pur ON pro.ProductID = pur.ProductID
 GROUP BY pro.ProductID,
-	pro.Name, CASE WHEN pro.MakeFlag = 1 THEN 'Manufactured' ELSE 'Purchased' END , CASE WHEN pro.FinishedGoodsFlag = 1 THEN 'Salable' ELSE 'Not Salable' END ,
+	pro.Name, CASE WHEN pro.MakeFlag = 1 THEN 'Manufactured' ELSE 'Purchased' END , 
+	CASE WHEN pro.FinishedGoodsFlag = 1 THEN 'Salable' ELSE 'Not Salable' END ,
 	pro.SafetyStockLevel,	pro.ReorderPoint,	pro.StandardCost,	pro.ListPrice,	pro.SellStartDate,
 	pro.SellEndDate,	pro.DiscontinuedDate,	ISNULL(psc.Name,'Others') ,	ISNULL(pc.Name,'Others'),	DaysToManufacture
 ```
@@ -111,15 +112,53 @@ WHERE PurchaseOH.Status = 4
 ```
 
 ## Data Transformation
-During the data preparation phase of the #30DAYSOFLEARNING Twitter hashtag analysis, several data transformations were performed to extract relevant information from the collected dataset. The following transformations were applied:
+Data transformation is a critical phase in preparing raw data for analysis. This phase encompasses several key processes and involves the creation of calculated tables and field parameters to facilitate the analysis:
 
-- Date Extraction: A new column was created to extract the date from the existing timestamp column. This transformation enables easier analysis and visualization based on specific dates.
+### Calculated Tables
 
-- Day Name Extraction: Another new column was created to extract the day name (e.g., Monday, Tuesday) from the timestamp. This transformation provides insights into daily trends and patterns related to the hashtag.
+1. **Daily Table (Hidden)**:
+A calculated table, 'Daily Table,' was generated to span the last 365 days of sales data using the following DAX expression:
+`Daily Table = GENERATESERIES((MAX(Sales[OrderDate]) - 365), MAX(Sales[OrderDate]), 1)`
+This table serves as a hidden reference for daily time intervals.
 
-- Day Name Abbreviation: To further enhance readability and visual presentation, the first three letters of the day name were extracted to create an abbreviated version (e.g., Mon, Tue). This transformation allows for concise representation of the day names in visualizations and analysis.
+2. **Daily Demand Sheet**:
+'Daily Demand Sheet' was created by combining 'Daily Table' and 'Product Table' with this DAX expression:
+`Daily Demand Sheet = GENERATE('Daily Table', 'Product Table')`
 
-By performing these data transformations, the dataset now includes additional columns for date, day name. These transformations enable more granular analysis and visualization of the #30DAYSOFLEARNING hashtag data, specifically focusing on specific dates and daily patterns. These transformed columns can be utilized in Power BI to create informative charts, tables, and filters that provide insights into the temporal aspects of the campaign.
+3. **Week Table (Hidden)**:
+Another calculated table, 'Week Table,' was generated to cover the last 365 days in weekly intervals. It is hidden from the model and created using the following DAX expression:
+`Week Table = GENERATESERIES((MAX(Sales[OrderDate]) - 365), MAX(Sales[OrderDate]), 7)`
+
+4. **Weekly Demand Sheet**:
+'Weekly Demand Sheet' was created by combining 'Week Table' and 'Product Table':
+`Weekly Demand Sheet = GENERATE('Week Table', 'Product Table')`
+
+5. **DateTable**:
+A DateTable was constructed to encompass the entire date range within the sales data, created with this DAX expression:
+`DateTable = CALENDAR(MIN(Sales[OrderDate]), MAX(Sales[OrderDate]))`
+
+
+### Field Parameters
+Additionally, two field parameters were introduced to enhance flexibility in the analysis:
+
+1. **Demand Factor**:
+A parameter named 'Demand Factor' was defined, offering values ranging from -0.2 to 0.5 in steps of 0.1.
+
+2. **Forecast Days**:
+Another parameter named 'Forecast Days' was introduced, providing values ranging from 10 to 100 in increments of 10.
+
+*These calculated tables and field parameters collectively play a pivotal role in the analysis, enabling dynamic exploration of demand factors and flexible forecasting over varying timeframes. They enhance the adaptability and robustness of the inventory management optimization process.*
+
+**Calculating Turnover Rates**: Determining the turnover rates for each product. Turnover rates provide insights into how quickly products are sold and replenished. The formula for turnover rate is:
+`Inventory Turnover Ratio = (SUM('Product'[Annual Revenue])/SUM('Product'[Stock value]))`
+
+**Identifying Stockout Occurrences**: Detecting instances when products go out of stock. This involves tracking the transitions between product availability and unavailability. The average time a product remains out of stock is calculated.
+
+**Data Preparation for Predictive Modeling**: Structuring the data in a format suitable for predictive modeling. This includes selecting relevant features and target variables, handling missing values, and encoding categorical variables if needed.
+
+Data transformation is a crucial step to ensure that the data is clean, consistent, and ready for analysis and modeling. It sets the foundation for meaningful insights and accurate predictions in subsequent stages of the project.
+
+
 
 ![](Transformations.png)
 
