@@ -110,7 +110,7 @@ JOIN Purchasing.PurchaseOrderHeader PurchaseOH
 ON PurchaseOD.PurchaseOrderID = PurchaseOH.PurchaseOrderID
 WHERE PurchaseOH.Status = 4
 ```
-![](Data Source.png) 
+![](Data_Source.png)
 
 ## Data Transformation
 Data transformation is a critical phase in preparing raw data for analysis. This phase encompasses several key processes and involves the creation of calculated tables and field parameters to facilitate the analysis:
