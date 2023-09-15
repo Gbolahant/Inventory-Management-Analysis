@@ -166,6 +166,7 @@ Snowflake model
 
 ## Analysis and Visualization
 The report comprises 4 pages and 2 tooltip pages interact with it [here](https://app.powerbi.com/view?r=eyJrIjoiM2Q4ZTVkMmMtMmYwZi00YzQ2LWFjNDMtNDYwY2YyMzkwNDY2IiwidCI6ImQ2YjZlODcwLTkwNTgtNDgzOS1hOTJiLTNiNzRhMGI1ODliMSJ9)
+
 All pages in the report feature a slide-in filter box activated using the hamburger menu, providing users with a seamless and user-friendly experience for refining and customizing their data exploration.
 - Overview 
 - Product
