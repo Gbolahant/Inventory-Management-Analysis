@@ -110,6 +110,7 @@ JOIN Purchasing.PurchaseOrderHeader PurchaseOH
 ON PurchaseOD.PurchaseOrderID = PurchaseOH.PurchaseOrderID
 WHERE PurchaseOH.Status = 4
 ```
+![](Data Source.png) 
 
 ## Data Transformation
 Data transformation is a critical phase in preparing raw data for analysis. This phase encompasses several key processes and involves the creation of calculated tables and field parameters to facilitate the analysis:
@@ -159,63 +160,120 @@ Another parameter named 'Forecast Days' was introduced, providing values ranging
 Data transformation is a crucial step to ensure that the data is clean, consistent, and ready for analysis and modeling. It sets the foundation for meaningful insights and accurate predictions in subsequent stages of the project.
 
 
-
-![](Transformations.png)
-
-## Data modelling
-No model required as its just a single table.
+## Data modeling
+Snowflake model
+![](Model.png)
 
 ## Analysis and Visualization
-The report comprises of 3 pages interact with it [here](https://app.powerbi.com/view?r=eyJrIjoiOWIwMWZiOGItYjBlNy00YmNkLWI4NjItMDA4ZTQ3Y2IzZTFlIiwidCI6ImQ2YjZlODcwLTkwNTgtNDgzOS1hOTJiLTNiNzRhMGI1ODliMSJ9&pageName=ReportSection)
-- Homepage 
-- Summary
-- Content
-
-### Summary 
+The report comprises 4 pages and 2 tooltip pages interact with it [here](https://app.powerbi.com/view?r=eyJrIjoiM2Q4ZTVkMmMtMmYwZi00YzQ2LWFjNDMtNDYwY2YyMzkwNDY2IiwidCI6ImQ2YjZlODcwLTkwNTgtNDgzOS1hOTJiLTNiNzRhMGI1ODliMSJ9)
+All pages in the report feature a slide-in filter box activated using the hamburger menu, providing users with a seamless and user-friendly experience for refining and customizing their data exploration.
+- Overview 
+- Product
+- Forecast
+- Insight
+*tooltip page*
+- Tooltip Page 1
+- Tooltip Page 2
+  
+  
+### Overview Page
 ---
-![](SummaryPage.png)
+![](Overvie.png)
 
-After performing the analysis of the #30DAYSOFLEARNING Twitter hashtag, several key insights have been derived, providing valuable information about the campaign and user engagement. The following insights have been discovered:
+The Overview page serves as the starting point for the analysis, offering a bird's-eye view of FitCapacity's inventory and sales performance. It provides a high-level snapshot of key metrics such as turnover rate, revenue, and stock value. The visualizations on this page help stakeholders quickly grasp the overall health of the company's inventory management and sales performance.
 
-**Tweet and User Statistics**: Within the first two months of showcasing the #30days of learning program on Twitter, there have been a total of 674 tweets from 204 different people. This indicates an active participation in the campaign on the platform.
+**Turnover**: The overall turnover rate of 3.8 indicates that products are being sold at a moderate rate. Further exploration reveals that the turnover rates by category are as follows: Accessories at 15.1, Clothing at 13.5, Bikes at 4.2, and Components at 2.1. This data sheds light on which product categories are performing well.
 
-**Increasing Trend**: There has been an exponential increase in the number of tweets over time, particularly in the month of June compared to May. This suggests that the campaign gained momentum and generated greater interest as time progressed.
+**Most Valuable Products**: In the last year, 12 products have contributed a substantial 42% to FitCapacity's revenue. These products exhibit consistent demand across both uniform and variable demand categories. It's noteworthy that all of these high-performing products belong to the Bikes category.
 
-**Most Active User**: "The Oyinbooke" stands out as the most active user of the hashtag, contributing significantly to the conversation and engagement surrounding the #30DAYSOFLEARNING campaign.
+**Revenue**: The revenue generated in the past year amounts to a substantial $73 million, with Bikes accounting for the lion's share at $60 million.
 
-**Device Usage**: A majority (61%) of the users engaging with the hashtag do so using Android devices, indicating a higher prevalence of Android users within the campaign. Conversely, only 9% of the users tweet with iPhones.
+**Stock Value**: The total stock value currently stands at $14 million.
 
-**Engagement by Day of the Week**: The analysis reveals that user engagement with the hashtag varies by day of the week. Wednesdays show the highest engagement, while weekends experience the lowest levels of engagement. This suggests that weekdays are more conducive to active participation and interaction with the campaign.
+This analysis provides actionable insights that can inform strategic decisions for FitCapacity, particularly in optimizing product categories, managing stock levels, and further enhancing revenue generation.
 
-These insights provide stakeholders with valuable information regarding user behavior, platform preferences, and temporal patterns of engagement within the #30DAYSOFLEARNING campaign on Twitter. This understanding can help inform decision-making, content strategy, and campaign optimization efforts to further enhance the impact and success of the campaign.
 
-### Content
+### Product Page
 ---
-![](Content.png)
-This page provids a deeper understanding of the topics and discussions surrounding the campaign:
+![](Product.png)
 
-**Tool Mentions**: The analysis reveals that GitHub is the most frequently mentioned tool in tweets related to the #30DAYSOFLEARNING campaign, indicating its popularity and relevance within the learning community. On the other hand, Python is the least mentioned tool during the first two months of the program. This insight suggests a stronger association and emphasis on GitHub as a preferred documentation tool for the learning activities.
+The Product page is a comprehensive exploration of FitCapacity's product landscape, offering valuable insights into inventory performance and sales revenue. It is designed to provide a deep dive into product-related metrics and analyses, enabling stakeholders to make informed decisions.
 
-**Top Liked Tweet**: The user @its_royalgold's tweet garnered the highest number of likes among all the tweets associated with the hashtag. This tweet likely contained compelling content or resonated strongly with the audience, leading to its popularity and high engagement.
+**Top 5 Products by Turnover**: This section of the Product page highlights the five products with the highest turnover rates, indicating swift sales and replenishment. Identifying these top performers helps pinpoint products in high demand, contributing significantly to sales velocity.
 
-**Dominance of @Theoyinbooke**: The facilitator of the program, @TheOyinbooke, appears to have a significant presence within the Top 15 most liked tweets and also was the Most mentioned as shown on the word cloud. This suggests that @TheOyinbooke's contributions, insights, or interactions with the community have been well-received and appreciated by the audience. 
+**Bottom 5 Products by Turnover**: In contrast to the top performers, this section of the Product page presents the five products with the lowest turnover rates. These products move at a slower pace, potentially indicating the need for closer scrutiny and potential strategies for boosting sales.
 
-![](MostLiked.png)
+**Top 5 Products by Revenue**: Here, the Product page showcases the five revenue-generating champions over the past year. These products are the financial powerhouses, contributing the most substantial share to FitCapacity's revenue.
 
-## Conclusion:
+**Bottom 5 Products by Revenue**: In contrast to the top revenue generators, this section presents the five products with the lowest revenue contribution. Understanding these products is crucial for identifying areas where sales and marketing efforts may need to be adjusted or discontinued.
 
-The analysis of the #30DAYSOFLEARNING Twitter hashtag using Power BI has provided valuable insights into the engagement, reach, and user behavior related to the campaign. The findings indicate active participation in the campaign, with an increasing trend in tweet volume over time. "The Oyinbooke" emerged as the most active user, and Android devices were the most commonly used for engagement. Weekdays, particularly Wednesdays, showed higher levels of engagement compared to weekends. GitHub was the most mentioned tool, and the hashtags #NG30DAYSOFLEARNING and #30DAYSOFLEARNING were the most recurring. Furthermore, specific tweets, including one by @its_royal, received significant likes and engagement.
+**Product Count by ABC Analysis**: The ABC analysis categorizes products into three groups: A, B, and C, based on their contribution to revenue. Group A typically consists of a small number of high-value products that contribute the most to revenue. Group B comprises moderate-value products, and Group C includes numerous low-value products. This categorization aids in prioritizing inventory management efforts and resource allocation.
 
-## Recommendations:
+**Product Count by XYZ Analysis**: The XYZ analysis classifies products into three categories: X, Y, and Z, based on demand variability. Category X represents products with stable and predictable demand, while Category Y includes products with moderate demand variability. Category Z consists of products with highly unpredictable demand. This classification informs inventory strategies, helping determine stocking levels and reorder points for each product category.
 
-Based on the analysis and insights gained from the #30DAYSOFLEARNING Twitter hashtag, the following recommendations can be made:
+The Product page is a vital resource for understanding the performance and characteristics of FitCapacity's product portfolio. It empowers decision-makers with the information needed to optimize inventory levels, prioritize high-performing products, and enhance overall inventory management strategies.
 
-**Content Strategy**: Recognize the popularity of GitHub and tailor the campaign content to align with the preferences of the learning community. Emphasize the usage of GitHub as a documentation tool and provide resources, tutorials, and discussions around its effective utilization.
 
-**Mobile Optimization**: Given the majority of users engaging through Android devices, ensure that the campaign's content, visuals, and resources are optimized for mobile viewing and interaction. This includes responsive design, mobile-friendly layouts, and seamless user experiences on Android devices.
 
-**Weekday Focus**: Capitalize on the higher engagement levels observed on weekdays, particularly Wednesdays. Plan and schedule key campaign activities, announcements, and interactive sessions to align with these peak engagement periods to maximize participation and impact.
+### Forecast Page
+---
+![](Forecast.png)
 
-**Hashtag Utilization**: Maintain the prominence of the hashtags #NG30DAYSOFLEARNING and #30DAYSOFLEARNING in campaign communications, promotions, and discussions. Encourage participants to include these hashtags in their tweets and amplify their usage through engaging and shareable content.
+The Forecast page in the report utilizes the dynamic parameter table created earlier, allowing users to fine-tune their forecasting efforts. This interactive feature empowers stakeholders to adjust the number of forecasted days and the demand factor, enabling a more customized approach to demand prediction.
 
-By implementing these recommendations, the #30DAYSOFLEARNING campaign can further enhance its effectiveness, reach, and impact. Continuously monitor and analyze the campaign's performance using tools like Power BI to gather insights and adjust strategies accordingly. This iterative approach will ensure the campaign remains dynamic, engaging, and aligned with the evolving needs and preferences of the learning community.
+**Customizable Forecast Parameters**: Users have the flexibility to change the number of days for the forecast and adjust the demand factor according to their specific needs. This level of customization ensures that forecasts align with varying scenarios and changing market dynamics.
+
+**Product-Specific Recommendations**: For each product, the Forecast page provides tailored recommendations based on the adjusted forecasting parameters. These recommendations are essential for optimizing inventory levels and ensuring that products are stocked and replenished effectively.
+
+**Safety Stock and Reorder Point Recalculation**: The page also recalculates safety stock and reorder point values based on the modified parameters. Safety stock levels act as a buffer against unexpected demand fluctuations, while reorder points determine when stock should be replenished. The dynamic recalculation ensures that inventory management strategies remain aligned with the chosen forecast parameters.
+
+The Forecast page is a powerful tool for decision-makers, allowing them to explore various forecasting scenarios, receive product-specific guidance, and adapt their inventory strategies to meet changing market conditions effectively.
+
+### Insight
+---
+![](Insights.png)
+
+The Insight page synthesizes the most critical findings and recommendations from the analysis. It consolidates key insights such as the presence of seasonality in sales, turnover rates, non-moving products, and potential revenue loss. This page serves as a strategic guide for decision-makers, offering actionable recommendations for enhancing inventory management practices, optimizing stock levels, and maintaining revenue growth.
+
+### Tooltip pages 
+---
+| Tooltip page 1 | Tooltip page 2 |
+|----------|----------|
+| ![](Tooltip1.png)|![](Tooltip2.png)|
+
+The two tooltip pages provide additional context and details when interacting with the visualizations on the main pages. Tooltip Page 1 and Tooltip Page 2 offer on-demand information to assist users in understanding specific data points, trends, or anomalies within the visualizations. These pages enhance the interactivity and depth of analysis for users exploring the report.
+
+Each page in the report plays a distinct role in providing insights and facilitating data-driven decision-making for FitCapacity's inventory management optimization efforts.
+
+
+## Conclusion
+
+The analysis of FitCapacity's inventory management data has provided valuable insights into the current state of inventory practices and sales dynamics. These insights shed light on critical areas that require attention and improvement. As we conclude this inventory management optimization project, several key takeaways and recommendations emerge:
+
+### Key Takeaways
+
+1. **Seasonality in Sales:** The presence of seasonality in sales highlights the importance of aligning inventory levels with actual customer demand during peak seasons. This insight underscores the need for proactive inventory planning to avoid stockouts or overstocking during high-demand periods.
+
+2. **Low Turnover Rate:** The turnover rate of 3.8 signifies slow sales and a surplus of stockpiled goods. This observation emphasizes the urgency of optimizing inventory levels to prevent excess inventory accumulation and minimize the risk of stockouts. 
+
+3. **Identification of Non-Moving Products:** The identification of 128 non-moving products raises concerns about stagnant inventory that may lead to potential losses. These products warrant special attention, including strategies for clearance or reevaluation of their relevance in the product portfolio.
+
+4. **Potential Revenue Loss:** The analysis reveals a potential loss of $1.3 million in revenue in the next 60 days if inventory is not properly managed. This underscores the critical role of effective inventory management in maintaining revenue streams and profitability.
+
+## Recommendations
+
+To address these insights and enhance inventory management practices, the following recommendations have been proposed:
+
+- **Demand Forecasting:** Improve demand forecasting accuracy to ensure that inventory levels align with actual customer demand, reducing excess inventory and stockouts.
+
+- **Inventory Optimization:** Conduct regular inventory audits to identify slow-moving and obsolete items. Consider implementing an inventory management system that employs techniques like Just-In-Time (JIT) inventory to minimize carrying costs and streamline operations.
+
+- **Optimize Reorder Points:** Set appropriate reorder points for each product based on historical sales data, lead times, and demand variability. This will help ensure that stock is replenished at the right time, minimizing stockouts.
+
+- **Safety Stock Levels:** Maintain safety stock levels for critical products with unpredictable demand or longer lead times. Safety stock acts as a buffer against unexpected demand fluctuations.
+
+- **Discontinue Low-Performing Products:** It is recommended to discontinue products with consistently low turnover rates, minimal revenue contribution, high holding costs, and declining demand. This will free up resources for more profitable opportunities and streamline operations.
+
+- **Prioritize High Revenue-Generating Products:** Products that contribute significantly to revenue should be prioritized, as they account for approximately 42% of the company's annual revenue. Maintaining and optimizing the production and inventory management of these products is crucial for continued revenue growth and overall success.
+
+In conclusion, the Inventory Management Optimization project equips FitCapacity with actionable insights and a roadmap for improving inventory practices. Effective implementation of these recommendations will not only lead to better inventory management but also contribute to increased profitability, reduced costs, and enhanced operational efficiency. It is imperative for FitCapacity to embrace these recommendations and embark on a journey towards optimized inventory management for sustained success.
